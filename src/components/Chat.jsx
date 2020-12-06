@@ -1,19 +1,30 @@
 import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
-import List from '@material-ui/core/List';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemText from '@material-ui/core/ListItemText';
+import ListItem from '@material-ui/core/ListItem'
 import ListItemAvatar from '@material-ui/core/ListItemAvatar';
-import Avatar from '@material-ui/core/Avatar';
-import Typography from '@material-ui/core/Typography';
+import Avatar from '@material-ui/core/Avatar' 
+import NoProfile from '../assets/img/no-profile.png'
+import Torahack from '../assets/img/torahack.png'
 
-const Chat =()=>{
-    <ListItem alignItems="flex-start">
-        <ListItemAvatar>
-            <Avatar alt="icon" src="/static/images/avatar/1.jpg" />
-        </ListItemAvatar>
-        <div clsssName = "p-chat__bubble"></div>
-    </ListItem>
+
+
+const Chat = (props) =>{
+    const isQuestion = (props.type === 'question');
+    const classes = isQuestion ? 'p-chat__row ' : 'p-chat__reverse';
+
+    return(
+        <ListItem className = {classes}>
+            <ListItemAvatar>
+                {isQuestion ? (
+                    <Avatar alt="icon" src= {Torahack} />
+                ) : (
+                    <Avatar alt="icon" src= {NoProfile} />
+                )}
+                
+            </ListItemAvatar>
+    <div className="p-chat__bubble">{props.text}</div>
+        </ListItem>
+    )
+
 }
 
 export default Chat

@@ -1,7 +1,7 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import List from '@material-ui/core/List';
-import {Chat} from "./Chat";
+import {Chat} from "./index";
 
 
 const useStyles = makeStyles((theme) => ({
@@ -16,13 +16,16 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 
-const Chats =()=>{
+const Chats =(props)=>{
     const classes = useStyles();
-return(
-    <List className={classes.root}>
-        <Chat/>
-    </List>    
-)
+    
+    return (
+        <List className={classes.root}>
+            {props.chats.map((chat,index) => {
+                return <Chat text={chat.text} type={chat.type} key={index.toString()}/>
+            })}
+        </List>    
+    )
 }
 
 export default Chats
