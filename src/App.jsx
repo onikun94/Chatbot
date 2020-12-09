@@ -21,6 +21,7 @@ export default class App extends React.Component {
     chats.push({
       text: this.state.dataset[nextQuestionId].question,
       type: 'question'
+      
     })
 
     this.setState({
@@ -40,10 +41,10 @@ export default class App extends React.Component {
         const chats = this.state.chats;
         chats.push({
           text:selectedAnswer,
-          type: 'ansewer'
+          type: 'answer'
         })
         this.setState({
-          chas: chats
+          chats: chats
         })
         this.displayNextQuestion(nextQuestionId);
         break;
