@@ -94,7 +94,7 @@ handleClose = () => {
         <div className = "c-box">
           <Chats chats = {this.state.chats} />
           <AnswersList answers={this.state.answers} select = {this.selectAnswer}/>
-          <FormDialog open = {this.state.open} handleCLose = {this.handleClose}/>
+          <FormDialog open = {this.state.open} handleClose = {this.handleClose}/>
         </div>
       </section>
 
